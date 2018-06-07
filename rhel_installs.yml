@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  become: True
+  become_method: sudo
+  gather_facts: false
+  connection: local
+  vars:
+    yum_packages:
+      - vim
+      - tree
+      - tmux
+      - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+      - ansible
+      - python-pip
+
+
+  tasks:
+
+  - name: Install yum packages
+    yum:
+      name: "{{item}}"
+      state: present
+    loop: "{{yum_packages}}"
