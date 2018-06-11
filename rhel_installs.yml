@@ -6,10 +6,10 @@
   connection: local
   vars:
     yum_packages:
+      - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
       - vim
       - tree
       - tmux
-      - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
       - ansible
       - python-pip
 
