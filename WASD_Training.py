@@ -1,40 +1,244 @@
 
 import random
+import msvcrt
 
-key_list = {'1':one_ascii,}
+one_ascii = """1
+ __  
+/_ | 
+ | | 
+ | | 
+ | | 
+ |_| """
+two_ascii = """2 
+ ___   
+|__ \  
+   ) | 
+  / /  
+ / /_  
+|____| """
+three_ascii = """3 
+ ____   
+|___ \  
+  __) | 
+ |__ <  
+ ___) | 
+|____/  """
+four_ascii = """4  
+ _  _    
+| || |   
+| || |_  
+|__   _| 
+   | |   
+   |_|   """
+five_ascii = """5 
+ _____  
+| ____| 
+| |__   
+|___ \  
+ ___) | 
+|____/  
+       """
+q_ascii = """q 
+  ______      
+ /  __  \     
+|  |  |  |    
+|  |  |  |    
+|  `--'  '--. 
+ \_____\_____\\
+              """
+w_ascii = """w 
+____    __    ____ 
+\   \  /  \  /   / 
+ \   \/    \/   /  
+  \            /   
+   \    /\    /    
+    \__/  \__/     """
+w2_ascii = """w
+____    __    ____ 
+\   \  /  \  /   / 
+ \   \/    \/   /  
+  \            /   
+   \    /\    /    
+    \__/  \__/     """
+e_ascii = """e
+ _______ 
+|   ____|
+|  |__   
+|   __|  
+|  |____ 
+|_______|"""
+r_ascii = """r
+.______      
+|   _  \     
+|  |_)  |    
+|      /     
+|  |\  \-.
+| _| `.__|"""
+a_ascii = """a
+     ___      
+    /   \     
+   /  ^  \    
+  /  /_\  \   
+ /  _____  \  
+/__/     \__\\"""
+a2_ascii = """a
+     ___      
+    /   \     
+   /  ^  \    
+  /  /_\  \   
+ /  _____  \  
+/__/     \__\\"""
+
+s_ascii = """s
+     _______.
+    /       |
+   |   (----`
+    \   \    
+.----)   |   
+|_______/    
+            """
+s2_ascii = """s
+     _______.
+    /       |
+   |   (----`
+    \   \    
+.----)   |   
+|_______/    
+            """
+d_ascii = """d
+ _______  
+|       \ 
+|  .--.  |
+|  |  |  |
+|  '--'  |
+|_______/ 
+          """
+d2_ascii = """d
+ _______  
+|       \ 
+|  .--.  |
+|  |  |  |
+|  '--'  |
+|_______/ 
+          """
+f_ascii = """f
+ _______ 
+|   ____|
+|  |__   
+|   __|  
+|  |     
+|__|     
+      """
+z_ascii = """z
+ ________  
+|       /  
+`---/  /   
+   /  /    
+  /  /----.
+ /________|
+           """
+x_ascii = """x
+___   ___ 
+\  \ /  / 
+ \  V  /  
+  >   <   
+ /  .  \  
+/__/ \__\\"""
+c_ascii = """c
+  ______ 
+ /      |
+|  ,----'
+|  |     
+|  `----.
+ \______|"""
+v_ascii = """v
+____    ____ 
+\   \  /   / 
+ \   \/   /  
+  \      /   
+   \    /    
+    \__/    """
+space_ascii = """ 
+     _______..______      ___       ______  _______ 
+    /       ||   _  \    /   \     /      ||   ____|
+   |   (----`|  |_)  |  /  ^  \   |  ,----'|  |__   
+    \   \    |   ___/  /  /_\  \  |  |     |   __|  
+.----)   |   |  |     /  _____  \ |  `----.|  |____ 
+|_______/    | _|    /__/     \__\ \______||_______|
+                                                    """
+space2_ascii = """ 
+     _______..______      ___       ______  _______ 
+    /       ||   _  \    /   \     /      ||   ____|
+   |   (----`|  |_)  |  /  ^  \   |  ,----'|  |__   
+    \   \    |   ___/  /  /_\  \  |  |     |   __|  
+.----)   |   |  |     /  _____  \ |  `----.|  |____ 
+|_______/    | _|    /__/     \__\ \______||_______|
+                                                    """ 
+shift_ascii = """S
+     _______. __    __   __   _______ .___________.                   _______.
+    /       ||  |  |  | |  | |   ____||           |                  /       |
+   |   (----`|  |__|  | |  | |  |__   `---|  |----`    ______       |   (----`
+    \   \    |   __   | |  | |   __|      |  |        |______|       \   \    
+.----)   |   |  |  |  | |  | |  |         |  |                   .----)   |   
+|_______/    |__|  |__| |__| |__|         |__|                   |_______/    
+                                                                              """
+ctrl_ascii = """c
+  ______ .___________..______       __                      ______ 
+ /      ||           ||   _  \     |  |                    /      |
+|  ,----'`---|  |----`|  |_)  |    |  |         ______    |  ,----'
+|  |         |  |     |      /     |  |        |______|   |  |     
+|  `----.    |  |     |  |\  \----.|  `----.              |  `----.
+ \______|    |__|     | _| `._____||_______|               \______|
+                                                                   """
+tab_ascii = """    
+.___________.    ___      .______   
+|           |   /   \     |   _  \  
+`---|  |----`  /  ^  \    |  |_)  | 
+    |  |      /  /_\  \   |   _  <  
+    |  |     /  _____  \  |  |_)  | 
+    |__|    /__/     \__\ |______/  
+                                   """
+
+key_list = [one_ascii, two_ascii, three_ascii,four_ascii, five_ascii, q_ascii, w_ascii, w2_ascii, e_ascii, r_ascii, a_ascii, a2_ascii, s_ascii, s2_ascii, d_ascii, d2_ascii, f_ascii, z_ascii, x_ascii, c_ascii, v_ascii, space_ascii, space2_ascii, shift_ascii, ctrl_ascii, tab_ascii]
 what_was_typed = 0 
 number_correct = 0
 total_number = 0
 score_count = 0
 
-
 while what_was_typed != "p":
-    n = random.randint(0, 27)
+    n = random.randint(0, len(key_list) - 1)
+    print('\n\n')
     print(key_list[n])
-    what_was_typed = raw_input('----> ')
+    what_was_typed = msvcrt.getche()
     
-    if key_list.keys(n) == what_was_typed:
+    if key_list[n][0] == what_was_typed:
         number_correct = number_correct + 1
-        print('You got it right!!')
+        print("""\n 
+  ______   ______   .______      .______       _______   ______ .___________.
+ /      | /  __  \  |   _  \     |   _  \     |   ____| /      ||           |
+|  ,----'|  |  |  | |  |_)  |    |  |_)  |    |  |__   |  ,----'`---|  |----`
+|  |     |  |  |  | |      /     |      /     |   __|  |  |         |  |     
+|  `----.|  `--'  | |  |\  \----.|  |\  \----.|  |____ |  `----.    |  |     
+ \______| \______/  | _| `._____|| _| `._____||_______| \______|    |__|     
+                                                                             """)
     else: 
-        print('You got it wrong...')
+        print("""\n
+____    __    ____ .______        ______   .__   __.   _______ 
+\   \  /  \  /   / |   _  \      /  __  \  |  \ |  |  /  _____|
+ \   \/    \/   /  |  |_)  |    |  |  |  | |   \|  | |  |  __  
+  \            /   |      /     |  |  |  | |  . `  | |  | |_ | 
+   \    /\    /    |  |\  \----.|  `--'  | |  |\   | |  |__| | 
+    \__/  \__/     | _| `._____| \______/  |__| \__|  \______| """)
     
-    total_number = total_number = 1
+    total_number = total_number + 1
     score_count = score_count + 1
 
     if score_count >= 10:
-        percent_right_decimal = number_correct / total_number 
-        percent_right = percent_right_decimal * 100
+        percent_right = float(number_correct) / float(total_number)
 
-        print('You have gotten {} right out of {}. That is a {}%').format(number_correct, total_number, percent_right)
+        print('You got {} right out of {}. That is {} correct!').format(number_correct, total_number, percent_right)
 
         score_count = 0
+percent_right = float(number_correct) / float(total_number)
 
-print('Thanks for playing your final score was {} correct out of {} that is a {}%.').format(number_correct, total_number, percent_right)
-
-
-one_ascii
-two
-three
-four
-five
+print('Thanks for playing your final score was {} correct out of {} that is {} correct!').format(number_correct, total_number, percent_right)
